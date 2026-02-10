@@ -1,197 +1,100 @@
-res = 1;
+### ---------------- 1 se N tak prime numbers print karo ------------------- ###
+number = int(input("Enter a number: "))
 
+for i in range(2, number + 1):
+    # Check if i is prime
+    for j in range(2, i):
+        if i % j == 0:
+            break
+    else:
+        print(i, "is a prime")
+
+
+####### ------- Check if the given number is an Armstrong number ------- #######
+number = int(input("Enter a number: "))
+num = number  # Save original number
+arr = []
+
+# Extract digits
+while num > 0:
+    digit = num % 10
+    arr.append(digit)
+    num = num // 10
+
+# Calculate sum of digits raised to power of number of digits
+result1 = 0
+n = len(arr)
+for x in arr:
+    result1 += x ** n
+
+# Check Armstrong
+if result1 == number:
+    print(number, "is an Armstrong number")
+else:
+    print(number, "is NOT an Armstrong number")
+
+
+####### ------- Calculate power of a number ------- #######
+base = int(input("Enter base: "))
+power = int(input("Enter power: "))
+result = 1
+
+for i in range(power):
+    result *= base
+
+print(f"{base}^{power} = {result}")
+
+
+####### ------- Check if a number is prime using sqrt optimization ------- #######
+import math
+
+num = int(input("Enter number to check prime: "))
+if num <= 1:
+    print(num, "is not a prime number")
+else:
+    is_not_prime = False
+    for i in range(2, int(math.sqrt(num) + 1)):
+        if num % i == 0:
+            is_not_prime = True
+            break
+
+    if is_not_prime:
+        print(num, "is NOT a prime number")
+    else:
+        print(num, "is a prime number")
+
+
+####### ------- Sum of odd numbers from 1 to N ------- #######
+num = int(input("Enter number to sum odd numbers up to: "))
+sum_odd = 0
+
+for i in range(1, num + 1):
+    if i % 2 != 0:
+        sum_odd += i
+
+print("Sum of odd numbers from 1 to", num, "is:", sum_odd)
+
+
+####### ------- Factorial calculation (example for 5!) ------- #######
+res = 1
 for x in range(5, 1, -1):
-
-    res *= x;
-    print(res," * ",x, " = " ,res)
-    
-    
-print(res)
-# import math 
-
-# num = int(input("Enter number: "))
-
-# if num <= 1:
-#     print(num, "is not a prime number")
-# else:
-#     for z in range(2, num):
-         
-#         if num % z == 0:
-#             print("its not a prime number")
-#             break
-#     else:
-#          print(num, "is a prime number")
-
-        
-# n = int(input("Enter Number:"))
-# for x in range(n,0, -1):  
-#     print(x);
-
-# def show():   
-#     print("hello")
-
-# show()
+    res *= x
+print("5! =", res)
 
 
-# lisht = [23,45,67,26,67,87, 70, 93,38]
-# print(lisht.append(4))
-# print(lisht.remove(4))
-# print(lisht.pop(2))
-# print(lisht)
-# lisht.append(2)
-# lisht.sort()
-# lisht = ["Jahangir","Ali","Khaskheli","muhammad","Younis"]
-# print(lisht[3])
-# myList = [10,20,30,40,50]
-# for x in myList :
-#     print(x)
-# myData = [ "Jahangir", 12, 16,"th "]
-# print(myData)
-# a = 0;
-# b = 1;
-# num = int(input("How many times you want to print: "))
-# while i <= num:
-#     print(a, end="  ");
-#     res = a + b
-#     a = b
-#     b = res 
-    
-
-# # n = int(input("How many terms? "))
-
-# # a = 0
-# # b = 1
-# # i = 1
-
-# # while i <= n:
-# #     print(a, end=" ")
-# #     c = a + b
-# #     a = b
-# #     b = c
-# #     i += 1
-
-# # dic = {
-# #     'a': 'hello',
-# #     'b': 'world',
-# #     }
-# # for key, value in dic.items():
-# #     if key == 'a':
-# #         print(value)
-# # i = 6
-# # while i > 1:
-# #     print(i)
-# #     i -=1
-
-# # from operator import le
+####### ------- Fibonacci series ------- #######
+a, b = 0, 1
+num = int(input("How many Fibonacci terms to print? "))
+for i in range(num):
+    print(a, end=" ")
+    a, b = b, a + b
+print()
 
 
-# # i = 1
-# # j = i+5
-# # while i<6:
-# #      i+=1
-# #      print(i*j)
+####### ------- Working with lists example ------- #######
+myList = [10, 20, 30, 40, 50]
+for x in myList:
+    print(x)
 
-
-
-
-
-
-
-
-
-# # print("List of Odd numbers: ")
-# # for i in range(50):
-# #     if (i%2 != 0):
-# #         print(i)
-     
-# # a = input("Enter First Number: ")
-# # b = input("Enter 2nd Number: ")
-# # print("Average of both is: ",((a+b)/2));
-
-# # light = input("light colour is: ")
-# # if(light == "green"):
-# #     print("You can go!")
-# # elif(light == "red"):
-# #     print("light is red! stop here!")
-# # elif(light == "yellow"):
-# #     print("light is yellow!")
-# # marks = input("enter your marks: ");
-# # # '>=' not supported between instances of 'str' and 'int'
-# # if (marks >= 101 or marks <= 0 ):
-# #     print("Please Enter marks bitween the range 100 and 1")
-# # if (marks >= 90):
-# #     print("You goted A1 grade!")
-# # elif (marks >= 75):
-# #     print("You goted A grade!")
-# # elif (marks >= 60):
-# #     print("You goted B grade!")
-# # elif (marks >= 50):
-# #     print("You goted C grade!")
-# # elif (marks >= 40):
-# #     print("You goted D grade!")
-# # else:
-# #     print("oh! You are failed!")
-# # Age = input("Enter your age ");
-# # if (Age >= 18):
-# #         print("You can vote!")
-# # else:
-# #         print("You can't vote!")
-
-# # name = input("Name: ")
-# # age =  input("Age: ")
-# # price = input("Price: ")
-
-# # print("My name is: ", name, "My age is: ", age, "price of Laptop is: ",price, "rupees.")
-
-
-# # a,b = 12,5;
-# # c = a//b;
-# # print(c);
-
-# # a,b = -12,5;
-# # c = a//b;
-# # print(c);
-
-# # a,b = 12,-5;
-# # c = a//b;
-# # print(c);
-
-# # a,b = -5,2;
-# # c = a%b;
-# # print(c);
-
-# # a,b = 5,2;
-# # c = a%b;
-# # print(c);
-
-# # a,b = -5,-2;
-# # c = a%b;
-# # print(c);
-
-
-
-# # a,b = 1,2;
-
-# # print("a//b = ",a//b , ": while a/b = ", a/b);
-
-
-# # a,b = 8,4;
-# # c = a//b;
-# # print(c);
-
-# # a,b = 1,8;
-# # c = a/b;
-# # print(c);
-
-# # a,b = 2, 3; 
-# # c = "@";
-# # print(a, "*", c, "*", b ,": ",a*b*c)
-# # print("a = ",a,", b = ",b)
-
-# # print("Hello Python from Visual Studio 2022")
-
-# # eee = "7"
-# # print(2* eee * 8)
-
-# # name = input("What is your name: ")
-# # print("My Name is "name)
+names = ["Jahangir", "Ali", "Khaskheli", "Muhammad", "Younis"]
+print("4th name in list:", names[3])
